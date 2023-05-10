@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+{% block title %}{{parent()}}- Edit {% endblock%}
+{% block titre %} {{ parent()|upper }} - consultation de {{ game.getType() }} {% endblock %}
+{% block body %}  
+<h1> game is {{ game.getTitre() }} </h1><br><br>
+<h1>made by :: {{ game.getEditeur() }}</h1><br><br><br>
+<h2>number of players  :: {{ game.getNbrJoueur() }}</h2>
+<h3>Image</h3>
+<img src ="{{ publicPath ~ game.image}}">
+
+<h3> Joueurs </h3>
+<ul class="nav nav-pills nav-stacked">
+    {% for empl in listJoueurs %}
+    <h4> Joueur </h4><br>
+    <li>{{empl.nom}}</li>
+    <li>{{empl.email}}</li>
+    <li>{{empl.bornAt | date('d-m-y')}}</li>
+    <li>{{empl.score}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

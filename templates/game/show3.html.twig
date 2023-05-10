@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Image{% endblock %}
+
+{% block body %}
+    <h1>Image numero {{image.id}}</h1>
+
+    <img src="{{image.url}}" alt="{{image.alt}}" height="100">
+
+{% endblock %}

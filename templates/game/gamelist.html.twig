@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block body %} 
+<h2> Liste des Games | <small> <a href="{{path('Ajout_game')}}"> Ajouter</a> </small> </h2>  
+{% for msg in app.flashes('notice') %}
+{{msg}}
+{% endfor %}
+<table class="table table-hover table-striped" border="1" >
+<thead>
+<tr>
+<th>#</th>
+<th>Nom & Prenom </th>
+<th> Contenu </th>
+<th > Date </th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+{% for g in games %}
+<tr>
+<td>{{g.id}}</td>
+<td>{{g.titre}}</td>
+<td>{{g.type}}</td>
+<td> {{g.nbrJoueur}}</td>
+<td>{{g.editeur}}</td>
+<td>
+<a class="btn btn-primary" href="{{ path('game_show', {'id':g.id }) }}">voir</a>
+<a class="btn btn-info" href="">Modifier</a>
+<a class="btn btn-danger" href="#" onclick="return confirm('Are you sure to delete!{{ g.titre}}')">Supprimer</a>
+</td>
+</tr>
+{% else %}
+<tr> 
+<td colspan="5"> Aucun abonné</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base.html.twig" %}
+{% block title %}{{parent()}}- Edit {% endblock%}
+{% block titre %} {{ parent()|upper }} - consultation de {{ joue.getNom() }} {% endblock %}
+{% block body %}  
+<h1> Player email is {{ joue.getEmail() }} </h1><br><br>
+<h1> Born at :: {{ joue.getBornAt()|date('d-m-Y') }}</h1><br><br><br>
+<h2> Score  :: {{ joue.getScore() }}</h2>
+{% endblock %}
